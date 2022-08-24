@@ -1,4 +1,10 @@
 /// <reference types="cypress" />
+
+/*
+  Observe that the first click works as expected with `scroll-behavior: smooth`, but all subsequent clicks do not.
+  The tests all pass with `scroll-behavior: auto`
+*/
+
 describe('page', () => {
   const windowScrollY = {
     initial: '',
@@ -32,7 +38,6 @@ describe('page', () => {
   })
 
   it("scrolls on nauc-me-it page", () => {
-    /* Uncomment line 39 and notice how the first nav link DOES smooth scroll, but the rest of them do not */
     cy.visit("https://nauc-me-it-pegak.vercel.app/")
     cy.viewport(1920, 1080)
     cy.get('html').should('have.css', 'scroll-behavior', 'smooth')
